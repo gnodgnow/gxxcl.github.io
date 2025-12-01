@@ -8,17 +8,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            /* 定义品牌色 - 更加现代柔和的配色 */
+            /* 基础配色 */
             --bg-color: #f5f7fa;
             --card-bg: #ffffff;
-            --green-primary: #10b981;  /* 新搭设 */
+            
+            /* 各模块颜色定义 */
+            --purple-primary: #8b5cf6; /* 仪表盘 - 紫色 */
+            --purple-shadow: rgba(139, 92, 246, 0.3);
+            
+            --green-primary: #10b981;  /* 新搭设 - 绿色 */
             --green-shadow: rgba(16, 185, 129, 0.3);
-            --yellow-primary: #f59e0b; /* 定期检查 */
+            
+            --yellow-primary: #f59e0b; /* 定期检查 - 黄色 */
             --yellow-shadow: rgba(245, 158, 11, 0.3);
-            --red-primary: #ef4444;    /* 拆除 */
+            
+            --red-primary: #ef4444;    /* 拆除 - 红色 */
             --red-shadow: rgba(239, 68, 68, 0.3);
-            --blue-primary: #3b82f6;   /* 查询 */
+            
+            --blue-primary: #3b82f6;   /* 查询 - 蓝色 */
             --blue-shadow: rgba(59, 130, 246, 0.3);
+            
             --text-main: #1f2937;
             --text-sub: #6b7280;
         }
@@ -39,7 +48,6 @@
             min-height: 100vh;
         }
 
-        /* 手机端容器限制宽度，防止在电脑上太宽 */
         .app-container {
             width: 100%;
             max-width: 480px;
@@ -52,8 +60,8 @@
         /* 头部设计 */
         header {
             text-align: center;
-            margin-bottom: 30px;
-            margin-top: 20px;
+            margin-bottom: 25px;
+            margin-top: 15px;
         }
 
         header h1 {
@@ -79,7 +87,7 @@
         .action-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px; /* 间距稍微调小一点，容纳更多按钮 */
             flex: 1;
         }
 
@@ -97,12 +105,10 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        /* 点击效果 */
         .action-card:active {
             transform: scale(0.98);
         }
 
-        /* 图标样式 */
         .icon-box {
             width: 48px;
             height: 48px;
@@ -111,7 +117,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 22px;
             margin-right: 15px;
             backdrop-filter: blur(5px);
         }
@@ -127,14 +133,19 @@
             opacity: 0.9;
         }
 
-        /* 箭头 */
         .arrow {
             margin-left: auto;
             opacity: 0.6;
         }
 
-        /* 个性化颜色配置 */
-        
+        /* --- 颜色配置 --- */
+
+        /* 0. 仪表盘 - 紫色 (新增) */
+        .card-dashboard {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            box-shadow: 0 8px 20px var(--purple-shadow);
+        }
+
         /* 1. 新搭设 - 绿色 */
         .card-entry {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -159,7 +170,6 @@
             box-shadow: 0 8px 20px var(--blue-shadow);
         }
 
-        /* 底部版权 */
         footer {
             text-align: center;
             padding: 30px 0;
@@ -173,18 +183,25 @@
 
     <div class="app-container">
         
-        <!-- 顶部标题区 -->
         <header>
             <div class="logo-icon"><i class="fas fa-cubes-stacked"></i></div>
             <h1>脚手架全生命周期管理</h1>
             <p>Scaffolding Management System</p>
         </header>
 
-        <!-- 核心功能按钮区 -->
         <div class="action-list">
 
+            <!-- 0. 仪表盘 (放在第一位) -->
+            <a href="https://www.kdocs.cn/wo/sl/v11avMP7" class="action-card card-dashboard" target="_blank">
+                <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                <div class="text-box">
+                    <h3>项目总览仪表盘</h3>
+                    <span>Project Dashboard</span>
+                </div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+            </a>
+
             <!-- 1. 新搭设录入 -->
-            <!-- 请将 href="" 中的链接替换为您图片中对应的金山文档链接 -->
             <a href="https://www.kdocs.cn/wo/sl/v11SvSU0" class="action-card card-entry" target="_blank">
                 <div class="icon-box"><i class="fas fa-plus-circle"></i></div>
                 <div class="text-box">
@@ -226,9 +243,8 @@
 
         </div>
 
-        <!-- 底部 -->
         <footer>
-            <p>安全第一 · 预防为主<br>© 2025 广西华谊新材料有限公司</p>
+            <p>安全第一 · 预防为主<br>© 2025 工程安全管理部</p>
         </footer>
 
     </div>
